@@ -6,28 +6,28 @@ const nameActiveSlide = document.querySelectorAll(".slider__name");
 
 let index = 0;
 
-const activeSlide = (n) => {
+const activeSlide = n => {
   for (slide of slides) {
     slide.classList.remove("active");
   }
   slides[n].classList.add("active");
 };
 
-const activeNumber = (n) => {
+const activeNumber = n => {
   for (number of numberActiveSlide) {
     number.classList.remove("active");
   }
   numberActiveSlide[n].classList.add("active");
 };
 
-const activeName = (n) => {
+const activeName = n => {
   for (nameSlider of nameActiveSlide) {
     nameSlider.classList.remove("active");
   }
   nameActiveSlide[n].classList.add("active");
 };
 
-const prepareCurrentSlide = (ind) => {
+const prepareCurrentSlide = ind => {
   activeSlide(index);
   activeNumber(index);
   activeName(index);
@@ -58,8 +58,8 @@ btnPrev.addEventListener("click", prevSlide);
 
 // собираем все якоря; устанавливаем время анимации и количество кадров
 const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-  animationTime = 300,
-  framesCount = 15;
+  animationTime = 600,
+  framesCount = 150;
 
 function activeDot() {
   anchors.forEach(function (el) {
@@ -111,12 +111,12 @@ let scrollpos = window.scrollY;
 const about = document.querySelector(".about");
 
 //Сколько пикселей нужно проскролить, чтобы добавить класс
-const scrollChange = 100;
+const scrollChange = 400;
 
 //Функция, которая будет добавлять класс
 const addClassOnScroll = () => {
   about.classList.add("active");
-}
+};
 
 //Отслеживаем скролл
 window.addEventListener("scroll", function () {
@@ -124,6 +124,6 @@ window.addEventListener("scroll", function () {
 
   //Если прокрутили больше, чем мы указали в переменной scrollChange, то выполняется функция добавления класса
   if (scrollpos >= scrollChange) {
-    add_class_on_scroll();
+    addClassOnScroll();
   }
 });

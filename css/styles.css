@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Yantramanav", sans-serif;
+.about.active {
+  background-color: green;
 }
 
-.section {
-  scroll-behavior: smooth;
+body {
+  font-family: "Yantramanav", sans-serif;
 }
 
 a {
@@ -45,14 +45,12 @@ a:hover {
   background: #dcdcdc;
   margin: 7.5px 0;
   cursor: pointer;
-  scroll-behavior: smooth;
 }
 
 .scroll__item-link.active {
   width: 12px;
   height: 12px;
   margin: 17px 0;
-  scroll-behavior: smooth;
 }
 
 .header {
@@ -78,9 +76,10 @@ a:hover {
   margin-bottom: 197px;
 }
 
-.header__box {
-  margin-bottom: auto;
-}
+/* .header__box {
+  margin-top: 50%;
+  transform: translateY(-50%);
+} */
 
 .header__title {
   font-family: "Nunito", sans-serif;
@@ -126,7 +125,7 @@ a:hover {
 
 .form__button {
   color: #ffffff;
-  padding: 15px 50px 11px 41px;
+  padding: 16px 50px 11px 41px;
   background-color: #20ab50;
   border-radius: 0px 29px 27px 0px;
   border: 1px solid #20ab50;
