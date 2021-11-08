@@ -6,28 +6,28 @@ const nameActiveSlide = document.querySelectorAll(".slider__name");
 
 let index = 0;
 
-const activeSlide = n => {
+const activeSlide = (n) => {
   for (slide of slides) {
     slide.classList.remove("active");
   }
   slides[n].classList.add("active");
 };
 
-const activeNumber = n => {
+const activeNumber = (n) => {
   for (number of numberActiveSlide) {
     number.classList.remove("active");
   }
   numberActiveSlide[n].classList.add("active");
 };
 
-const activeName = n => {
+const activeName = (n) => {
   for (nameSlider of nameActiveSlide) {
     nameSlider.classList.remove("active");
   }
   nameActiveSlide[n].classList.add("active");
 };
 
-const prepareCurrentSlide = ind => {
+const prepareCurrentSlide = (ind) => {
   activeSlide(index);
   activeNumber(index);
   activeName(index);
@@ -56,74 +56,48 @@ const prevSlide = () => {
 btnNext.addEventListener("click", nextSlide);
 btnPrev.addEventListener("click", prevSlide);
 
-// собираем все якоря; устанавливаем время анимации и количество кадров
-const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-  animationTime = 600,
-  framesCount = 150;
-
-function activeDot() {
-  anchors.forEach(function (el) {
-    el.classList.remove("active");
+function activateNavigation() {
+  const sections = document.querySelectorAll(".section");
+  const navContainer = document.createElement("nav");
+  const navItems = Array.from(sections).map((section) => {
+    return `
+      <div class="nav__item" data-for-section="${section.id}">
+        <a href="#${section.id}" class="nav__item-link"></a>
+      </div>`;
   });
-  this.classList.add("active");
-}
 
-anchors.forEach(function (el) {
-  el.addEventListener("click", activeDot);
-});
+  navContainer.classList.add("nav");
+  navContainer.innerHTML = navItems.join("");
 
-anchors.forEach(function (item) {
-  // каждому якорю присваиваем обработчик события
-  item.addEventListener("click", function (e) {
-    // убираем стандартное поведение
-    e.preventDefault();
-
-    // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
-    let coordY =
-      document.querySelector(item.getAttribute("href")).getBoundingClientRect()
-        .top + window.pageYOffset;
-
-    // запускаем интервал, в котором
-    let scroller = setInterval(function () {
-      // считаем на сколько скроллить за 1 такт
-      let scrollBy = coordY / framesCount;
-
-      // если к-во пикселей для скролла за 1 такт больше расстояния до элемента и дно страницы не достигнуто
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        // то скроллим на к-во пикселей, которое соответствует одному такту
-        window.scrollBy(0, scrollBy);
-      } else {
-        // иначе добираемся до элемента и выходим из интервала
-        window.scrollTo(0, coordY);
-        clearInterval(scroller);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      document.querySelectorAll(".nav__item-link").forEach((navLink) => {
+        // navLink.classList.remove("active");
+      });
+      // const activeDot = entries.filte((entry) => entry.isIntersecting)[0];
+      const activeDot = entries.reduce((acc, curr) =>
+        acc.intersectionRatio > curr.intersectionRatio ? acc : curr
+      );
+      if (activeDot.intersectionRatio < 0.5) {
+        return;
       }
-      // время интервала равняется частному от времени анимации и к-ва кадров
-    }, animationTime / framesCount);
-  });
-});
+      document
+        // .querySelector(
+        //   `.nav__item[data-for-section="${activeDot.target.id}"] .nav__item-link`
+        // )
+        // .classList.add("active");
+        .querySelectorAll(".nav__item-link")
+        .forEach((n) => n.classList.remove("active"));
+      document
+        .querySelector(
+          `.nav__item[data-for-section="${activeDot.target.id}"]>.nav__item-link`
+        )
+        .classList.add("active");
+    },
+    { threshold: [0, 0.25, 0.5, 0.75, 1] }
+  );
+  sections.forEach((section) => observer.observe(section));
 
-//Записываем, сколько проскроллено по вертикали
-let scrollpos = window.scrollY;
-
-const about = document.querySelector(".about");
-
-//Сколько пикселей нужно проскролить, чтобы добавить класс
-const scrollChange = 400;
-
-//Функция, которая будет добавлять класс
-const addClassOnScroll = () => {
-  about.classList.add("active");
-};
-
-//Отслеживаем скролл
-window.addEventListener("scroll", function () {
-  scrollpos = window.scrollY;
-
-  //Если прокрутили больше, чем мы указали в переменной scrollChange, то выполняется функция добавления класса
-  if (scrollpos >= scrollChange) {
-    addClassOnScroll();
-  }
-});
+  document.body.appendChild(navContainer);
+}
+activateNavigation();

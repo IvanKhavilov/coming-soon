@@ -1,11 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-.about.active {
-  background-color: green;
 }
 
 body {
@@ -26,10 +26,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.scroll__nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.nav {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -37,17 +34,21 @@ a:hover {
   z-index: 20;
 }
 
-.scroll__item-link {
+.nav__item {
+  display: flex;
+  justify-content: center;
+}
+
+.nav__item-link {
   display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #dcdcdc;
   margin: 7.5px 0;
-  cursor: pointer;
 }
 
-.scroll__item-link.active {
+.nav__item-link.active {
   width: 12px;
   height: 12px;
   margin: 17px 0;
@@ -73,13 +74,12 @@ a:hover {
 
 .logo {
   align-self: flex-start;
-  margin-bottom: 197px;
+  margin-bottom: 187px;
 }
 
-/* .header__box {
-  margin-top: 50%;
-  transform: translateY(-50%);
-} */
+.header__box {
+  margin-bottom: auto;
+}
 
 .header__title {
   font-family: "Nunito", sans-serif;
@@ -96,7 +96,7 @@ a:hover {
   letter-spacing: 0.005em;
   color: #ffffff;
   max-width: 562px;
-  margin: 39px auto 0;
+  margin: 28px auto 0;
 }
 
 .header__form,
@@ -135,35 +135,11 @@ a:hover {
   font-weight: 400;
   letter-spacing: 0.025em;
   margin-left: -27px;
+  transition: all 0.5s;
 }
 
 .form__button:hover {
   background-color: #0d8b39;
-  transition: all 0.5s;
-}
-
-.scroll-indicator-controller > div.active {
-  background: #dcdcdc;
-  width: 12px;
-  height: 12px;
-  margin: 0 0 21px 0;
-}
-
-.scroll-indicator-controller {
-  right: 56px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.scroll-indicator-controller > div {
-  width: 8px;
-  height: 8px;
-  position: relative;
-  border-radius: 50%;
-  background: #dcdcdc;
-  border: none;
-  margin: 0 0 15px 0;
 }
 
 .about__inner {
@@ -324,6 +300,7 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 0.5s;
+  z-index: 15;
 }
 
 .button__prev:hover {
@@ -331,7 +308,7 @@ a:hover {
 }
 
 .button__next {
-  transform: rotateY(180deg);
+  transform: translateY(9px) rotateY(180deg);
 }
 
 .button__next:hover {
@@ -830,6 +807,21 @@ a:hover {
   .about__descr-text {
     padding: 0 50px;
   }
+  .about__text-2::before {
+    top: -40px;
+    left: 35px;
+  }
+  .about__text-2::after {
+    right: 40px;
+  }
+  .about__text-4::before {
+    top: -40px;
+    left: 40px;
+  }
+  .about__text-4::after {
+    bottom: -12px;
+    right: 40px;
+  }
 }
 
 @media (max-width: 1150px) {
@@ -844,7 +836,7 @@ a:hover {
     padding: 0 70px 0 70px;
     margin-bottom: 70px;
   }
-  .scroll-indicator-controller {
+  .nav {
     right: 17px;
   }
   .about__text-2::before {
@@ -978,12 +970,20 @@ a:hover {
   .button__next {
     position: absolute;
     top: 450px;
+    width: 30px;
+    height: 30px;
   }
   .button__prev {
-    left: 25px;
+    left: 55px;
   }
   .button__next {
-    right: 25px;
+    right: 55px;
+  }
+  .button__prev:hover {
+    transform: translateY(9px) scale(1);
+  }
+  .button__next:hover {
+    transform: rotateY(180deg) scale(1);
   }
   .slides__number-wrap {
     margin-top: 40px;
@@ -1100,7 +1100,7 @@ a:hover {
     min-width: 320px;
     overflow-x: scroll;
   }
-  .scroll-indicator-controller {
-    left: 17px;
+  .nav {
+    right: 5px;
   }
 }
