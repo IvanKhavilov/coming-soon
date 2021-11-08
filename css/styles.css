@@ -60,6 +60,7 @@ a:hover {
   background-size: cover;
   background-position: top center;
   height: 100vh;
+  position: relative;
 }
 
 .header__inner {
@@ -78,7 +79,9 @@ a:hover {
 }
 
 .header__box {
-  margin-bottom: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .header__title {
