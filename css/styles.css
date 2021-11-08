@@ -312,7 +312,7 @@ a:hover {
 }
 
 .button__next:hover {
-  transform: rotateY(180deg) scale(1.15);
+  transform: translateY(9px) rotateY(180deg) scale(1.15);
 }
 
 .slider__item {
@@ -983,7 +983,7 @@ a:hover {
     transform: translateY(9px) scale(1);
   }
   .button__next:hover {
-    transform: rotateY(180deg) scale(1);
+    transform: translateY(9px) rotateY(180deg) scale(1);
   }
   .slides__number-wrap {
     margin-top: 40px;
@@ -992,7 +992,7 @@ a:hover {
 
 @media (max-width: 610px) {
   .form__input {
-    padding: 15px 25px 15px;
+    padding: 15px;
   }
   .form__button {
     padding: 17px 20px 15px;
@@ -1027,7 +1027,8 @@ a:hover {
   .forward {
     padding: 50px 20px;
   }
-  .footer__button {
+  .footer__button,
+  .form__button {
     padding: 15px 29px 15px;
     font-size: 16px;
   }
