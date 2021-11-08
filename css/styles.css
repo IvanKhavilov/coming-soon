@@ -17,8 +17,9 @@ a {
 }
 
 a:hover {
-  font-weight: bold;
-  transition: all 0.3s;
+  color: #0a6e2d;
+  text-decoration: underline;
+  transition: text-decoration 0.5s;
 }
 
 .container {
@@ -51,7 +52,6 @@ a:hover {
 .nav__item-link.active {
   width: 12px;
   height: 12px;
-  margin: 17px 0;
 }
 
 .header {
@@ -69,19 +69,17 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
-  height: 100%;
 }
 
 .logo {
   align-self: flex-start;
-  margin-bottom: 187px;
 }
 
 .header__box {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 
 .header__title {
@@ -114,7 +112,7 @@ a:hover {
   background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 22px;
-  padding: 15px 103px 11px 29px;
+  padding: 15px 103px 13px 29px;
 }
 
 .form__input::placeholder {
@@ -128,7 +126,7 @@ a:hover {
 
 .form__button {
   color: #ffffff;
-  padding: 16px 50px 11px 41px;
+  padding: 16px 50px 12px 41px;
   background-color: #20ab50;
   border-radius: 0px 29px 27px 0px;
   border: 1px solid #20ab50;
@@ -138,11 +136,12 @@ a:hover {
   font-weight: 400;
   letter-spacing: 0.025em;
   margin-left: -27px;
-  transition: all 0.5s;
+  transition: background-color 0.5s;
 }
 
 .form__button:hover {
   background-color: #0d8b39;
+  border: 1px solid #0d8b39;
 }
 
 .about__inner {
@@ -265,7 +264,7 @@ a:hover {
 }
 
 .range {
-  padding: 77px 0;
+  padding: 77px 0 70px;
   text-align: center;
 }
 
@@ -302,7 +301,7 @@ a:hover {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAzOCAzOCI+PGc+PGcgb3BhY2l0eT0iLjIiPjxpbWFnZSB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQ1lBQUFBbUNBWUFBQUNvUGVtdUFBQUNlRWxFUVZSWVI4M1lTNmhOVVJ6SDhjOHRyenpLaElFTUVFSU1ETGpGUk1LSURCU1ppUUZpS0k5Y0kyNGVHUklHWkNKUkJoZ1NKaFFHQm9RUUJqSmdvanp5S3ZwcmJXM2JQWTk5bkt1MTZ0VHBuTFgvLys5YTYvZC83TldqL3VqQlBDeEZMMlpnQWtZbFV4L3hHbzl4RzFkd0Z6L3F1QW9uN1k2eDJJb05tRlI1NkMwK3BOOUdZMXpsLzVjNGlTTjQxNDdEZHNDR1l4dDJsWGJsRmk3aUJoNldvQXFmQVRjTGk3QVNDMHE3dVIrSDhhVVpZQ3V3T1RpSG1maUdVOG5vczNaV1hab3pOUzF1UFliaUVkYmdmaU03emNEaXdkTVlnV3ZZakNjMWdhclRwK01ZRnVNejFxV0YvMlcyRVZoQUhFMkMzWTJEZGNYYlpBSGhjd2Y2RWQrM0pOZy9IaGtJTEhicUxMNWpMUzc4NHk0MWVueFY4ak1rK1FuSi9CNVZzTkRVSFF6RDZrR0VLZ0FDN2p5K1luNVpjMld3aUw1N1NlZ1JnUWNHYWFlcVpuY2lJalVDWW00UnJXV3cwTksrSlBRbFhkUlVxL1VGdzlVVUVIMUplNy9FRnlPUzU2dDBoTE83RUgydFlBYUsxZ2ZwU0NkR0VpN0FnblF2VG1CVFhhdVYrWkZlSWhYVUhjZXhFWHZpNUFJc1BzOVRtWm1HdXNtekRCQ2xLSExlbVE0MEdrbjRLYUo4VFFtb2lJWW90bEZtRnRaZFptbCtBUlZTdUk1bEtlWFVNWGt6bGEvZUFDdEVIMG52VUIwclRhQ1c0MU1IdHJhblpONFhZSmV3SXJVd2tjUHFqdXBPZFFvVmZvdlR1eHhnVWY5Q1cyTUc2QkphUVhZVEtueEZWL0krdEJaZzBVZkZ0bzl2UlZINXY5dFFoZmszR0JsZzBWbStpRWlvQVRaWVVJRVFHV0p5MW1EWkhtVzI0czgyWFdTYllMTXRTZGtXOGNnZFdiWTlXVGVLQVpkbGF4MWcyYjZNQkZ5V3IyOUZEYy95aGJlQXkvS0tvTHh6MlYycUZIQlpYa01WY0ZsZTNKV2IydXl1T3FzZDkzKzVIUDRKYkZMbWlmaE9GTVVBQUFBQVNVVk9SSzVDWUlJPSIvPjwvZz48L2c+PC9zdmc+");
   background-size: cover;
   background-repeat: no-repeat;
-  transition: all 0.5s;
+  transition: transform 0.5s;
   z-index: 15;
 }
 
@@ -370,38 +369,41 @@ a:hover {
 }
 
 .benefits {
+  padding: 69px 0 41px;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
 .benefits__inner {
-  padding: 54px 60px 30px;
+  padding: 0px 60px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  transform: translateY(30px);
+  position: relative;
+  z-index: 5;
 }
 
 .benefits__title {
   font-family: "Nunito", sans-serif;
   font-size: 30px;
-  line-height: 38px;
+  line-height: 48px;
   font-weight: 500;
   width: 100%;
-  padding-top: 12px;
 }
 
 .benefits__text {
   font-size: 18px;
-  line-height: 40px;
+  line-height: 38px;
   font-weight: 100;
   letter-spacing: 0.005em;
   width: 100%;
-  margin-bottom: 5px;
 }
 
 .benefits__box-img {
   position: relative;
   width: 635px;
+  z-index: -1;
 }
 
 .benefits__box-2 {
@@ -618,7 +620,7 @@ a:hover {
 
 .benefits__item {
   background-color: #ffffff;
-  padding: 15px 13px 15px 15px;
+  padding: 9px 13px 11px 15px;
   border-radius: 10px;
   width: 231px;
   text-align: left;
@@ -642,7 +644,7 @@ a:hover {
 }
 
 .forward {
-  padding: 90px 0 78px;
+  padding: 80px 0 63px;
   text-align: center;
 }
 
@@ -665,9 +667,9 @@ a:hover {
 .forward__inner {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 60px 80px;
+  grid-gap: 51px 80px;
   padding: 0 189px 0 117px;
-  margin-bottom: 84px;
+  margin-bottom: 78px;
 }
 
 .forward__inner-item {
@@ -675,9 +677,13 @@ a:hover {
   width: 130px;
 }
 
+.forward-item__title {
+  line-height: 26px;
+}
+
 .forward-item__text {
   font-size: 15px;
-  line-height: 24px;
+  line-height: 22px;
   font-weight: 100;
   letter-spacing: 0.01em;
 }
@@ -724,6 +730,10 @@ a:hover {
   padding-left: 28px;
 }
 
+.contacts__tel:hover {
+  color: #000;
+}
+
 .contacts__mail {
   color: #20ab50;
   padding-right: 54px;
@@ -732,7 +742,7 @@ a:hover {
 
 .footer {
   text-align: center;
-  padding: 135px 0 115px;
+  padding: 135px 0 112px;
   background-color: #f3f3f3;
 }
 
@@ -756,19 +766,21 @@ a:hover {
 
 .footer__input {
   width: 332px;
-  padding: 16px 0px 15px 44px;
+  padding: 13px 0px 15px 44px;
 }
 
 .footer__button {
   transform: translateX(10px);
+  padding: 16px 47px 12px 41px;
 }
 
 .copyright {
   background-color: #dcdcdc;
+  padding-left: 37px;
 }
 
 .copyright__inner {
-  padding: 6px 10px 12px 37px;
+  padding: 11px 0 9px;
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -804,6 +816,9 @@ a:hover {
 }
 
 @media (max-width: 1200px) {
+  .header__text {
+    padding: 0 15px;
+  }
   .about__descr {
     padding: 40px 0;
   }
@@ -995,10 +1010,10 @@ a:hover {
 
 @media (max-width: 610px) {
   .form__input {
-    padding: 15px;
+    padding: 14px 0 14px 15px;
   }
   .form__button {
-    padding: 17px 20px 15px;
+    padding: 14px 20px 14px;
   }
   .about__text-2::after,
   .about__text-2::before,
@@ -1032,7 +1047,7 @@ a:hover {
   }
   .footer__button,
   .form__button {
-    padding: 15px 29px 15px;
+    padding: 14px 29px 14px;
     font-size: 16px;
   }
 }
@@ -1050,11 +1065,11 @@ a:hover {
     font-size: 18px;
   }
   .form__button {
-    padding: 17px 5px 15px;
+    padding: 12px 7px 12px;
     font-size: 16px;
   }
   .form__input {
-    padding: 15px 0px 15px 15px;
+    padding: 12px 0px 12px 15px;
   }
   .form__input::placeholder {
     font-size: 16px;

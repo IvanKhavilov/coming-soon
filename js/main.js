@@ -74,7 +74,6 @@ function activateNavigation() {
       document.querySelectorAll(".nav__item-link").forEach((navLink) => {
         // navLink.classList.remove("active");
       });
-      // const activeDot = entries.filte((entry) => entry.isIntersecting)[0];
       const activeDot = entries.reduce((acc, curr) =>
         acc.intersectionRatio > curr.intersectionRatio ? acc : curr
       );
@@ -82,10 +81,6 @@ function activateNavigation() {
         return;
       }
       document
-        // .querySelector(
-        //   `.nav__item[data-for-section="${activeDot.target.id}"] .nav__item-link`
-        // )
-        // .classList.add("active");
         .querySelectorAll(".nav__item-link")
         .forEach((n) => n.classList.remove("active"));
       document
