@@ -71,9 +71,9 @@ function activateNavigation() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      document.querySelectorAll(".nav__item-link").forEach((navLink) => {
-        // navLink.classList.remove("active");
-      });
+      // document.querySelectorAll(".nav__item-link").forEach((navLink) => {
+      //   // navLink.classList.remove("active");
+      // });
       const activeDot = entries.reduce((acc, curr) =>
         acc.intersectionRatio > curr.intersectionRatio ? acc : curr
       );
