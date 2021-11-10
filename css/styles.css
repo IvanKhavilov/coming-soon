@@ -113,7 +113,8 @@ a:hover {
   background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 22px;
-  padding: 15px 103px 13px 29px;
+  height: 48px;
+  padding: 0px 103px 0px 29px;
 }
 
 .form__input::placeholder {
@@ -127,7 +128,8 @@ a:hover {
 
 .form__button {
   color: #ffffff;
-  padding: 16px 50px 12px 41px;
+  height: 48px;
+  padding: 0px 50px 0px 41px;
   background-color: #20ab50;
   border-radius: 0px 29px 27px 0px;
   border: 1px solid #20ab50;
@@ -150,18 +152,43 @@ a:hover {
   align-items: center;
 }
 
+.about__inner .about__descr-img {
+  width: 50%;
+}
+
+.about__inner .about__descr-img {
+  padding: 0 0 100% 0;
+}
+
 .about__descr {
   width: 50%;
-  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   letter-spacing: 0.8px;
+  height: 0;
+}
+
+.about__descr-img {
+  width: 50%;
+
+  position: relative;
+}
+.about__descr-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .about__item-img {
-  width: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: auto;
 }
 
@@ -292,7 +319,6 @@ a:hover {
 .button__prev,
 .button__next {
   cursor: pointer;
-  transform: translateY(9px);
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -304,38 +330,49 @@ a:hover {
 }
 
 .button__prev:hover {
-  transform: translateY(9px) scale(1.15);
+  transform: translateX(-167px) translateY(13px) scale(1.15);
+}
+.button__prev {
+  transform: translateX(-167px) translateY(13px);
 }
 
 .button__next {
-  transform: translateY(9px) rotateY(180deg);
+  transform: translateX(166px) translateY(13px) rotateY(180deg);
 }
 
 .button__next:hover {
-  transform: translateY(9px) rotateY(180deg) scale(1.15);
+  transform: translateX(166px) translateY(13px) rotateY(180deg) scale(1.15);
 }
 
-.slider__item {
+.slider__inner {
+  position: relative;
+  width: 35.3125%;
+  padding: 0 0 35.3125% 0;
+}
+
+.slider__inner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.slider__item,
+.slider__name,
+.slides__number {
   display: none;
 }
 
 .slider__item.active {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0 165px;
-  width: 452px;
-  height: 452px;
-}
-
-.slider__item {
-  display: none;
-  font-weight: 400;
-  letter-spacing: 0.005em;
-}
-
-.slider__img {
+  display: block;
+  width: 100%;
   height: auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .slides__number-wrap {
@@ -352,26 +389,19 @@ a:hover {
   display: block;
 }
 
-.slider__name {
-  display: none;
-}
-
 .slider__name.active {
   display: block;
   font-family: "Nunito", sans-serif;
   font-size: 24px;
   line-height: 38px;
   font-weight: 400;
+  letter-spacing: 0.005em;
   position: relative;
   z-index: 10;
 }
 
-.slides__number {
-  display: none;
-}
-
 .benefits {
-  padding: 39px 0 19px;
+  padding: 42px 0 19px;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -672,7 +702,7 @@ a:hover {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 51px 80px;
   padding: 0 189px 0 117px;
-  margin-bottom: 78px;
+  margin-bottom: 80px;
 }
 
 .forward__inner-item {
@@ -769,12 +799,12 @@ a:hover {
 
 .footer__input {
   width: 332px;
-  padding: 14px 0px 14px 44px;
+  padding: 0px 0px 0px 44px;
 }
 
 .footer__button {
   transform: translateX(10px);
-  padding: 16px 47px 12px 41px;
+  padding: 0px 47px 0px 41px;
 }
 
 .copyright {
@@ -854,17 +884,11 @@ a:hover {
 
 @media (max-width: 1200px) {
   .header__text {
-    padding: 0 25px;
-  }
-  .about__descr {
-    padding: 40px 0;
+    padding: 0 30px;
   }
 }
 
 @media (max-width: 1150px) {
-  .slider__item.active {
-    margin: 0 60px;
-  }
   .range__text {
     margin-bottom: 50px;
   }
@@ -895,32 +919,55 @@ a:hover {
   .about__inner {
     display: flex;
     flex-direction: column;
-    height: 100%;
   }
   .about__descr {
     justify-content: space-around;
     width: 100%;
-    height: 100%;
+    padding: 25px;
   }
   .about__descr-text {
-    padding: 10px 45px 10px 40px;
+    padding: 5px 30px 5px 5px;
   }
-  .about__item-img {
-    width: 100%;
+  .about__title-2,
+  .about__text-3,
+  .about__text-5 {
+    transform: translateY(0px);
   }
-  .bout__item-img-2 {
+  .bout__descr-img-2 {
     order: 2;
-  }
-  .about__title-2 {
-    margin: 0 0 25px 0;
-  }
-  .about__text-4 {
-    margin-top: 0px;
   }
   .about__text-3,
   .about__text-5 {
-    margin-top: 15px;
-    margin-bottom: 0px;
+    margin: 15px 0;
+  }
+  .about__text-2::before {
+    left: 8px;
+  }
+  .about__text-2::after {
+    bottom: -10px;
+    right: 25px;
+  }
+  .about__text-4::before {
+    top: -20px;
+    left: 15px;
+  }
+  .about__text-4::after {
+    bottom: 0px;
+    right: 30px;
+  }
+  .button__prev:hover {
+    transform: translateX(-107px);
+  }
+  .button__prev {
+    transform: translateX(-107px);
+  }
+
+  .button__next {
+    transform: translateX(136px) rotateY(180deg);
+  }
+
+  .button__next:hover {
+    transform: translateX(136px) rotateY(180deg);
   }
   .forward__inner {
     grid-template-columns: repeat(3, 1fr);
@@ -930,6 +977,7 @@ a:hover {
 @media (max-width: 890px) {
   .about__descr {
     justify-content: space-around;
+    margin-top: 15px;
   }
   .about__descr-title {
     font-size: 26px;
@@ -939,97 +987,9 @@ a:hover {
     font-size: 14px;
     line-height: 18px;
   }
-  .about__text-4 {
-    margin-top: 10px;
-    padding: 0 40px;
-  }
-  .benefits__inner {
-    padding: 30px;
-  }
-  .about__text-2::after {
-    bottom: -18px;
-    right: 48px;
-  }
-  .about__text-2::before {
-    left: 20px;
-  }
-  .about__text-4::after {
-    bottom: -15px;
-    right: 30px;
-  }
-  .about__text-4::before {
-    left: 20px;
-  }
-}
-
-@media (max-width: 770px) {
-  .about__text-2::after {
-    bottom: -4px;
-    right: 37px;
-  }
-  .about__text-2::before {
-    top: -10px;
-  }
-  .about__text-4 {
-    margin: 0;
-  }
-  .slider__item.active {
-    justify-content: space-around;
-    margin: 0 40px;
-    width: 380px;
-    height: 380px;
-  }
-  .benefits__box-1 {
-    order: 2;
-  }
-  .benefits__box-2 {
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 635px) {
-  .range__slider {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    position: relative;
-  }
-  .slider__item.active {
-    width: 100%;
-    margin: 0 auto;
-  }
-  .slider__img {
-    width: 100%;
-  }
-  .button__prev,
-  .button__next {
-    position: absolute;
-    top: 450px;
-    width: 30px;
-    height: 30px;
-  }
-  .button__prev {
-    left: 55px;
-  }
-  .button__next {
-    right: 55px;
-  }
-  .button__prev:hover {
-    transform: translateY(9px) scale(1);
-  }
-  .button__next:hover {
-    transform: translateY(9px) rotateY(180deg) scale(1);
-  }
-  .slides__number-wrap {
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 610px) {
-  .form__input {
-    padding: 14px 0 14px 15px;
-  }
-  .form__button {
-    padding: 14px 20px 14px;
+  .about__text-3,
+  .about__text-5 {
+    margin: 30px 0 5px;
   }
   .about__text-2::after,
   .about__text-2::before,
@@ -1037,6 +997,95 @@ a:hover {
   .about__text-4::before {
     width: 20px;
     height: 12px;
+  }
+  .about__text-2::after {
+    bottom: -5px;
+    right: 30px;
+  }
+  .about__text-2::before {
+    left: 8px;
+  }
+  .about__text-4::after {
+    bottom: -10px;
+    right: 30px;
+  }
+  .about__text-4::before {
+    left: -5px;
+    top: -10px;
+  }
+  .range__text {
+    margin-bottom: 20px;
+  }
+  .benefits__inner {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 770px) {
+  .about__text-2::before {
+    top: -10px;
+    left: -5px;
+  }
+  .about__text-4 {
+    margin: 0;
+  }
+  .slider__item.active {
+    justify-content: space-around;
+  }
+  .benefits__box-1 {
+    order: 2;
+  }
+  .benefits__box-2 {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 635px) {
+  .range__slider {
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+  }
+  .slider__inner {
+    position: relative;
+    width: 55%;
+    padding: 0 0 55% 0;
+  }
+  .button__prev,
+  .button__next {
+    width: 30px;
+    height: 30px;
+  }
+  .button__prev:hover {
+    transform: translateX(-10px) scale(1);
+  }
+  .button__prev {
+    transform: translateX(-10px);
+  }
+  .button__next {
+    transform: translateX(10px) rotateY(180deg);
+  }
+  .button__next:hover {
+    transform: translateX(10px) rotateY(180deg) scale(1);
+  }
+  .slides__number-wrap {
+    margin-top: 0px;
+    font-size: 16px;
+  }
+  .slider__name.active {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 610px) {
+  .form__input {
+    padding: 0px 0 0px 15px;
+  }
+  .form__button {
+    padding: 0px 20px 0px;
+  }
+  .about__descr-text {
+    padding: 5px 25px 5px 0;
   }
   .forward__text-top {
     margin-bottom: 50px;
@@ -1048,6 +1097,11 @@ a:hover {
 }
 
 @media (max-width: 520px) {
+  .about__descr-img {
+    width: 80%;
+    padding: 0 0 100% 0;
+    position: relative;
+  }
   .about__text-2::after {
     bottom: -10px;
   }
@@ -1063,8 +1117,12 @@ a:hover {
   }
   .footer__button,
   .form__button {
-    padding: 14px 29px 14px;
+    padding: 0px 29px 0px;
     font-size: 16px;
+  }
+  .form__input::placeholder {
+    font-size: 16px;
+    line-height: 18px;
   }
 }
 
@@ -1081,19 +1139,20 @@ a:hover {
     font-size: 18px;
   }
   .form__button {
-    padding: 12px 7px 12px;
-    font-size: 16px;
+    padding: 0px 7px 0px;
   }
   .form__input {
-    padding: 12px 0px 12px 15px;
-  }
-  .form__input::placeholder {
-    font-size: 16px;
-    line-height: 18px;
+    padding: 0px 0px 0px 15px;
   }
   .range__text {
     padding: 0 30px;
     margin-bottom: 10px;
+  }
+  .button__prev:hover {
+    transform: translateX(0px) scale(1);
+  }
+  .button__prev {
+    transform: translateX(0px);
   }
   .contacts__mail {
     transform: translateX(0);
@@ -1104,14 +1163,12 @@ a:hover {
     width: 100%;
     padding-left: 0;
   }
+  .nav {
+    right: 5px;
+  }
 }
 
 @media (max-width: 390px) {
-  .button__prev,
-  .button__next {
-    position: absolute;
-    top: 390px;
-  }
   .slides__number-wrap {
     margin-top: 10px;
   }
@@ -1134,8 +1191,5 @@ a:hover {
   body {
     width: 320px;
     overflow-x: scroll;
-  }
-  .nav {
-    right: 5px;
   }
 }
