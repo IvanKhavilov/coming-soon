@@ -28,6 +28,14 @@ a:hover {
   margin: 0 auto;
 }
 
+/* .section {
+  height: 100vh;
+}
+
+.about {
+  height: 321vh;
+} */
+
 .nav {
   position: fixed;
   top: 50%;
@@ -101,26 +109,22 @@ a:hover {
   margin: 28px auto 0;
 }
 
-.header__form,
-.footer__form {
+.form {
   margin-top: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .form__input {
   background-color: #ffffff;
-  border: 1px solid #ffffff;
   border-radius: 22px;
   height: 48px;
   padding: 0px 103px 0px 29px;
+  border: none;
 }
 
 .form__input::placeholder {
   font-family: "Yantramanav", sans-serif;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   font-weight: 300;
   letter-spacing: 0.025em;
   color: #8c8c8c;
@@ -128,17 +132,18 @@ a:hover {
 
 .form__button {
   color: #ffffff;
-  height: 48px;
+  height: 48.5px;
   padding: 0px 50px 0px 41px;
   background-color: #20ab50;
   border-radius: 0px 29px 27px 0px;
   border: 1px solid #20ab50;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
-  line-height: 18px;
+  line-height: 20px;
   font-weight: 400;
   letter-spacing: 0.025em;
   margin-left: -27px;
+  transform: translateY(0.5px);
   transition: background-color 0.5s;
 }
 
@@ -157,7 +162,7 @@ a:hover {
 }
 
 .about__inner .about__descr-img {
-  padding: 0 0 100% 0;
+  padding: 0 0 62.5% 0;
 }
 
 .about__descr {
@@ -172,7 +177,6 @@ a:hover {
 
 .about__descr-img {
   width: 50%;
-
   position: relative;
 }
 .about__descr-img::after {
@@ -793,34 +797,6 @@ a:hover {
   padding-top: 5px;
 }
 
-.footer__form {
-  margin-top: 40px;
-}
-
-.footer__input {
-  width: 332px;
-  padding: 0px 0px 0px 44px;
-}
-
-.footer__button {
-  transform: translateX(10px);
-  padding: 0px 47px 0px 41px;
-}
-
-.copyright {
-  background-color: #dcdcdc;
-  padding-left: 37px;
-}
-
-.copyright__inner {
-  padding: 11px 0 9px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  letter-spacing: 0.025em;
-  color: #ffffff;
-}
-
 @media (max-width: 1270px) {
   .nav {
     right: 17px;
@@ -1078,12 +1054,6 @@ a:hover {
 }
 
 @media (max-width: 610px) {
-  .form__input {
-    padding: 0px 0 0px 15px;
-  }
-  .form__button {
-    padding: 0px 20px 0px;
-  }
   .about__descr-text {
     padding: 5px 25px 5px 0;
   }
@@ -1111,7 +1081,6 @@ a:hover {
   .forward__inner {
     grid-template-columns: repeat(2, 1fr);
   }
-  .footer,
   .forward {
     padding: 50px 20px;
   }
@@ -1124,9 +1093,12 @@ a:hover {
     font-size: 16px;
     line-height: 18px;
   }
+  .form__button {
+    transform: translateY(0);
+  }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 432px) {
   .header__inner {
     padding: 30px 25px;
     text-align: center;

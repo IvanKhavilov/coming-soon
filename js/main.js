@@ -6,28 +6,28 @@ const nameActiveSlide = document.querySelectorAll(".slider__name");
 
 let index = 0;
 
-const activeSlide = (n) => {
+const activeSlide = n => {
   for (slide of slides) {
     slide.classList.remove("active");
   }
   slides[n].classList.add("active");
 };
 
-const activeNumber = (n) => {
+const activeNumber = n => {
   for (number of numberActiveSlide) {
     number.classList.remove("active");
   }
   numberActiveSlide[n].classList.add("active");
 };
 
-const activeName = (n) => {
+const activeName = n => {
   for (nameSlider of nameActiveSlide) {
     nameSlider.classList.remove("active");
   }
   nameActiveSlide[n].classList.add("active");
 };
 
-const prepareCurrentSlide = (ind) => {
+const prepareCurrentSlide = ind => {
   activeSlide(index);
   activeNumber(index);
   activeName(index);
@@ -59,7 +59,7 @@ btnPrev.addEventListener("click", prevSlide);
 function activateNavigation() {
   const sections = document.querySelectorAll(".section");
   const navContainer = document.createElement("nav");
-  const navItems = Array.from(sections).map((section) => {
+  const navItems = Array.from(sections).map(section => {
     return `
       <div class="nav__item" data-for-section="${section.id}">
         <a href="#${section.id}" class="nav__item-link"></a>
@@ -70,28 +70,20 @@ function activateNavigation() {
   navContainer.innerHTML = navItems.join("");
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      // document.querySelectorAll(".nav__item-link").forEach((navLink) => {
-      //   // navLink.classList.remove("active");
+    entries => {
+      // document.querySelectorAll(".nav__item-link").forEach(navLink => {
+      //   navLink.classList.remove("active");
       // });
-      const activeDot = entries.reduce((acc, curr) =>
-        acc.intersectionRatio > curr.intersectionRatio ? acc : curr
-      );
+      const activeDot = entries.reduce((acc, curr) => (acc.intersectionRatio > curr.intersectionRatio ? acc : curr));
       if (activeDot.intersectionRatio < 0.5) {
         return;
       }
-      document
-        .querySelectorAll(".nav__item-link")
-        .forEach((n) => n.classList.remove("active"));
-      document
-        .querySelector(
-          `.nav__item[data-for-section="${activeDot.target.id}"]>.nav__item-link`
-        )
-        .classList.add("active");
+      document.querySelectorAll(".nav__item-link").forEach(n => n.classList.remove("active"));
+      document.querySelector(`.nav__item[data-for-section="${activeDot.target.id}"]>.nav__item-link`).classList.add("active");
     },
-    { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    { threshold: 0.5 }
   );
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach(section => observer.observe(section));
 
   document.body.appendChild(navContainer);
 }
