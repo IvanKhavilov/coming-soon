@@ -157,14 +157,6 @@ a:hover {
   align-items: center;
 }
 
-.about__inner .about__descr-img {
-  width: 50%;
-}
-
-.about__inner .about__descr-img {
-  padding: 0 0 62.5% 0;
-}
-
 .about__descr {
   width: 50%;
   display: flex;
@@ -177,15 +169,8 @@ a:hover {
 
 .about__descr-img {
   width: 50%;
+  padding: 0 0 62.5% 0;
   position: relative;
-}
-.about__descr-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .about__item-img {
@@ -193,7 +178,7 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  height: auto;
+  object-fit: cover;
 }
 
 .about__descr-title {
