@@ -999,6 +999,9 @@ a:hover {
   .benefits__box-2 {
     transform: translateY(0px);
   }
+  .nav {
+    display: none;
+  }
 }
 
 @media (max-width: 635px) {
