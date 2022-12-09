@@ -71,17 +71,14 @@ function activateNavigation() {
 
   const observer = new IntersectionObserver(
     entries => {
-      // document.querySelectorAll(".nav__item-link").forEach(navLink => {
-      //   navLink.classList.remove("active");
-      // });
       const activeDot = entries.reduce((acc, curr) => (acc.intersectionRatio > curr.intersectionRatio ? acc : curr));
-      if (activeDot.intersectionRatio < 0.5) {
+      if (activeDot.intersectionRatio < 0.1) {
         return;
       }
       document.querySelectorAll(".nav__item-link").forEach(n => n.classList.remove("active"));
       document.querySelector(`.nav__item[data-for-section="${activeDot.target.id}"]>.nav__item-link`).classList.add("active");
     },
-    { threshold: 0.5 }
+    { threshold: 0.1 }
   );
   sections.forEach(section => observer.observe(section));
 
